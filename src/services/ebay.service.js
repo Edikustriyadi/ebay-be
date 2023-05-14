@@ -15,18 +15,19 @@ export const {
   EBAY_API_AFFILIATE_REFERENCE_ID,
   EBAY_API_AFFILIATE_CAMPAIGN_ID,
   EBAY_APP_CATEGORY_IDS,
+  EBAY_API_MODE
 } = process.env;
 
 const ebayOAuthClient = new EbayOAuthClient({
   clientId: `${EBAY_APP_CLIENT_ID}`,
   clientSecret: `${EBAY_APP_CLIENT_SECRET}`,
   redirectUri: ``,
-  env: "PRODUCTION",
+  env: `${EBAY_API_MODE}`,
 });
 
 const getToken = async () => {
   try {
-    return JSON.parse(await ebayOAuthClient.getApplicationToken("PRODUCTION"));
+    return JSON.parse(await ebayOAuthClient.getApplicationToken(`${EBAY_API_MODE}`));
   } catch (error) {
     console.error(error);
   }
@@ -35,7 +36,7 @@ const getToken = async () => {
 const eBay = new eBayApi({
   appId: `${EBAY_APP_CLIENT_ID}`,
   certId: `${EBAY_APP_CLIENT_SECRET}`,
-  sandbox: false,
+  sandbox: EBAY_API_MODE === 'DEVELOPMENT' ? true : false,
   marketplaceId: `${EBAY_API_MARKETPLACE_ID}`,
   authToken: getToken(),
 });
