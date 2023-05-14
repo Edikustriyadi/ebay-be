@@ -20,7 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 router.get("/", (req, res) => {
   res.json("welcome to api v1");
 });
-app.use("/api", router);
 app.use("/api/ebay", ebayRouter());
 
 app.listen(port, () => {
