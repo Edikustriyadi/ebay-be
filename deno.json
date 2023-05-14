@@ -1,8 +1,0 @@
-{
-  "tasks": {
-    "dev": "deno run -A --watch ./main.js"
-  },
-  "imports": {
-    "express": "https://esm.sh/express@4.18.2"
-  }
-}
