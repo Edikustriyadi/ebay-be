@@ -1,5 +1,8 @@
 {
+  "tasks": {
+    "dev": "deno run -A --watch ./main.js"
+  },
   "imports": {
-    "express": "npm:express"
+    "express": "npm:express@4.18.2"
   }
 }
