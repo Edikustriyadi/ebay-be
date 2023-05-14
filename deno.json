@@ -3,6 +3,6 @@
     "dev": "deno run -A --watch ./main.js"
   },
   "imports": {
-    "express": "npm:express@4.18.2"
+    "express": "https://esm.sh/express@4.18.2"
   }
 }
