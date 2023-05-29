@@ -43,12 +43,12 @@ const eBay = new eBayApi({
 
 class ebayService {
   async keywordSearch(keywordSearchOptions) {
-    const { searchTerm } = keywordSearchOptions;
+    const { searchTerm, categoryIds } = await keywordSearchOptions;
     return await eBay.buy.browse.search({
       q: `${searchTerm}`,
-      category_ids: "33559",
-      compatibility_filter:
-        "Year:2012;Make:Honda;Model:Civic;Trim:EX Sedan 4-Door;Engine:1.8L 1799CC l4 GAS SOHC Naturally Aspirated",
+      category_ids: `${categoryIds}`,
+      // compatibility_filter:
+      //   "Year:2012;Make:Honda;Model:Civic;Trim:EX Sedan 4-Door;Engine:1.8L 1799CC l4 GAS SOHC Naturally Aspirated",
     });
   }
 }
